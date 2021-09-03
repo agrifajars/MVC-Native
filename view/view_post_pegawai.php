@@ -1,5 +1,14 @@
+<?php
+    session_start();
+    if(empty($_SESSION['token'])){
+        $_SESSION['token'] = bin2hex(random_bytes(32));
+    }
+    $token = $_SESSION['token']
+?>
+
 <h1>Input Pegawai</h2>
 <form action="" method="POST">
+    <input type="hidden" name="csrf_token" value="<?=$token?>" />
     <table>
         <tr>
             <td>Nomor Induk pegawai</td>
@@ -53,10 +62,12 @@
 
 <?php
 	if(isset($_POST['proses'])){
-        //Get class controller
-		$main = new controller();
+        if ($_POST['csrf_token'] == $_SESSION['token']){
+            //Get class controller
+            $main = new controller();
 
-        //Call insert function on controller
-		$main->insert();
+            //Call insert function on controller
+            $main->insert();
+        }
 	}
 ?>
