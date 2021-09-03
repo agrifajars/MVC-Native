@@ -1,7 +1,7 @@
 <a href="index.php?i=add">Tambah Pegawai</a>
 <hr size="5" color="black">
 
-<h1>Daftar Pegawai</h2>
+<h1>Daftar Pegawai</h1>
 
 <table border="1">
     <tr>

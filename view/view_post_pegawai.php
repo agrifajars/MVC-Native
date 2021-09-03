@@ -6,7 +6,7 @@
     $token = $_SESSION['token']
 ?>
 
-<h1>Input Pegawai</h2>
+<h1>Input Pegawai</h1>
 <form action="" method="POST">
     <input type="hidden" name="csrf_token" value="<?=$token?>" />
     <table>
