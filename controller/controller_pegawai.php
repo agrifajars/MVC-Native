@@ -21,11 +21,12 @@
 			include "view/view_put_pegawai.php";
 		}
 
+
 		function view_index(){
 			$data = $this->model->selectAll();
 			include "view/view_pegawai.php";
 		}
-		
+
 		//Function Insert Data
 		function insert(){
 			$id = NULL;
@@ -51,8 +52,12 @@
 			
 			$this->model->update($id,$nip,$nama,$jns_kel,$tgl_lahir,$status,$mulai_kerja);
 			header("location:index.php");
-		}
+		}	
 		
+		function delete($id){
+			$data = $this->model->delete($id);
+			header("location:index.php");
+		}
 		
 		function __destruct(){
 		}

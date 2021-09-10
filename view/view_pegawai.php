@@ -28,7 +28,8 @@
         </td>
         <td><?php echo $data_pegawai['mulai_kerja']; ?></td>
         <td>
-            <a href="index.php?e=<?php echo $data_pegawai['id']; ?>">Edit</a>
+            <a href="index.php?e=<?php echo $data_pegawai['id']; ?>">Edit</a> ||
+            <a href="index.php?d=<?php echo $data_pegawai['id']; ?>">Hapus</a>
         </td>
     <tr>
     <?php endforeach; ?>

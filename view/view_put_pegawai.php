@@ -1,14 +1,10 @@
 <?php
-    session_start();
-    if(empty($_SESSION['token'])){
-        $_SESSION['token'] = bin2hex(random_bytes(32));
-    }
-    $token = $_SESSION['token']
+    include ("./csrf.php");
 ?>
 
 <h1>Update Pegawai</h1>
 <form action="" method="POST">
-    <input type="hidden" name="csrf_token" value="<?=$token?>" />
+    <input type="hidden" name="csrf_token" value="<?php echo CreateCSRF(); ?>" />
     <table>
         <tr>
             <td>Nomor Induk pegawai</td>
@@ -66,12 +62,13 @@
 
 <?php
 	if(isset($_POST['proses'])){
-        if ($_POST['csrf_token'] == $_SESSION['token']){
+        if(validation() == true ){
             //Get class controller
             $main = new controller();
 
             //Call insert function on controller
-            $main->update($data['id']);
+            $main->update($data['id']);   
         }
-	}
+    }
+
 ?>
